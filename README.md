@@ -1,6 +1,6 @@
 # Luis OS — MVP
 
-Aplicación web personal para ordenar el día y ver progreso sin saturarse.
+Aplicación web personal para ordenar el día y ver progreso sin saturarse.   
 Next.js 16 (App Router) · TypeScript · Tailwind v4 · Supabase (Auth + Postgres con RLS) · PWA.
 
 ## Qué incluye el MVP
