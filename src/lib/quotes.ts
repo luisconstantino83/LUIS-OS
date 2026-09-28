@@ -1,0 +1,51 @@
+import { dayOfYear, type ISODate } from "./dates";
+
+// Frases cortas, sin cursilería. Rotan una por día.
+export const QUOTES: string[] = [
+  "Hazlo simple. Hazlo hoy.",
+  "Lo mínimo, repetido, gana.",
+  "No necesitas motivación. Necesitas el siguiente paso.",
+  "Un día ligero no es un día perdido.",
+  "Descansar también es parte del plan.",
+  "Primero lo importante. Luego lo demás.",
+  "La constancia pesa más que la intensidad.",
+  "Termina algo pequeño antes de empezar algo grande.",
+  "Menos pendientes, más terminados.",
+  "Hoy no tienes que hacerlo todo.",
+  "El progreso aburrido es el que dura.",
+  "Si cabe en 5 minutos, hazlo ahora.",
+  "Cuida el cuerpo que va a hacer todo lo demás.",
+  "Duerme. Mañana decides mejor.",
+  "Publicado es mejor que perfecto.",
+  "Tu trabajo actual es la base, no el techo.",
+  "Delegar también es liderar.",
+  "Anota el problema. No lo cargues solo.",
+  "Una buena toma empieza con una buena idea.",
+  "Aprende algo. Practícalo. Enséñalo.",
+  "El dinero que no registras se va solo.",
+  "Antes de comprar, pregunta para qué.",
+  "Cada mes sin deuda nueva es un mes más libre.",
+  "Treinta minutos de inglés, cuatro veces. Eso es todo.",
+  "Diez páginas hoy son un libro este mes.",
+  "Respira antes de responder.",
+  "Controla lo que depende de ti.",
+  "Menos ruido, más foco.",
+  "Hazlo bien una vez en lugar de a medias tres veces.",
+  "La semana se construye en días normales.",
+  "No compares tu capítulo 3 con el capítulo 20 de otro.",
+  "Lo que se mide, se entiende.",
+  "Sé paciente con el proceso y exigente con el sistema.",
+  "Tres prioridades. No más.",
+  "Si es importante, ponle hora.",
+  "Graba hoy. Edita mañana. Publica.",
+  "Tu futuro se financia con decisiones pequeñas.",
+  "Estar cansado no es fallar.",
+  "Un paso claro vale más que un plan perfecto.",
+  "Sal del turno, deja el turno en el trabajo.",
+  "Hoy basta con hacerlo un poco mejor que ayer.",
+  "Nadie te está calificando. Solo avanza.",
+];
+
+export function quoteFor(iso: ISODate): string {
+  return QUOTES[dayOfYear(iso) % QUOTES.length];
+}
