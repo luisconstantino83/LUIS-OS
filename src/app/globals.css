@@ -1,0 +1,158 @@
+@import "tailwindcss";
+
+/* Tema: html.light / html.dark fuerzan; sin clase = sigue al sistema */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --bg: #f6f6f4;
+  --surface: #ffffff;
+  --surface-2: #f1f1ee;
+  --border: #e6e5e1;
+  --fg: #141413;
+  --muted: #6f6e69;
+  --faint: #a3a29c;
+  --accent: #3f5bd9;
+  --accent-fg: #ffffff;
+  --accent-soft: #e9edfc;
+  --success: #1f8a5b;
+  --success-soft: #e3f3eb;
+  --warn: #b7791f;
+  --warn-soft: #fbf0dc;
+  --danger: #c2413a;
+  --danger-soft: #fbe7e5;
+  --track: #ecebe7;
+  color-scheme: light;
+}
+
+:root.dark {
+  --bg: #0b0b0c;
+  --surface: #141416;
+  --surface-2: #1b1b1e;
+  --border: #26262a;
+  --fg: #ededee;
+  --muted: #8d8d95;
+  --faint: #5c5c63;
+  --accent: #7b93ff;
+  --accent-fg: #0b0b0c;
+  --accent-soft: #1d2340;
+  --success: #4cc38a;
+  --success-soft: #13291f;
+  --warn: #e3a54a;
+  --warn-soft: #2d2213;
+  --danger: #f07167;
+  --danger-soft: #331817;
+  --track: #232327;
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg: #0b0b0c;
+    --surface: #141416;
+    --surface-2: #1b1b1e;
+    --border: #26262a;
+    --fg: #ededee;
+    --muted: #8d8d95;
+    --faint: #5c5c63;
+    --accent: #7b93ff;
+    --accent-fg: #0b0b0c;
+    --accent-soft: #1d2340;
+    --success: #4cc38a;
+    --success-soft: #13291f;
+    --warn: #e3a54a;
+    --warn-soft: #2d2213;
+    --danger: #f07167;
+    --danger-soft: #331817;
+    --track: #232327;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-border: var(--border);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-faint: var(--faint);
+  --color-accent: var(--accent);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-success: var(--success);
+  --color-success-soft: var(--success-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-track: var(--track);
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, monospace;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-feature-settings: "ss01", "cv11";
+}
+
+/* Inputs de 16px en móvil para evitar zoom en iOS */
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+@media (min-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 14px;
+  }
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
+
+.safe-bottom {
+  padding-bottom: env(safe-area-inset-bottom);
+}
+.safe-top {
+  padding-top: env(safe-area-inset-top);
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-in {
+  animation: fade-up 0.28s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
